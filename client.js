@@ -1,4 +1,5 @@
 const net = require('net');
+
 const connect = function() {
   const conn = net.createConnection({ 
     host: '135.23.222.148',
@@ -12,14 +13,14 @@ const connect = function() {
   conn.on('connect', () => {
     conn.write('Name: RAW'); 
   })
-  // conn.on('connect', () => {
-  //     setInterval(() => {
-  //     conn.write('Move: left')
-  //   }, 50)
-  // })
+  conn.on('connect', () => {
+      setInterval(() => {
+      conn.write('Move: left')
+    }, 50)
+  })
   
-  conn.on('data', (message) => {
-    console.log('message from Server :>> ', message);
+  conn.on('data', (data) => {
+    console.log('message from Server :>> ', data);
   }) 
   return conn;
 }
