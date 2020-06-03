@@ -15,6 +15,9 @@ const connect = function() {
     conn.write('Name: RAW'); 
   })
   conn.on('connect', () => {
+    conn.write('Say: YOO'); 
+  })
+  conn.on('connect', () => {
     conn.write('Move: left');
     conn.write('Move: up');
     conn.write('Move: left');
